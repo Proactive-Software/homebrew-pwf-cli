@@ -5,41 +5,49 @@
 class Pwf < Formula
   desc "Personal ProWorkflow CLI"
   homepage "https://github.com/Proactive-Software/pwf-cli"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.1.0/pwf_darwin_amd64.tar.gz"
-      sha256 "2eac0b72a9a3e91b2bf203d44c15d945c78ca0effa10a9d0174f08ca6d7f1bf6"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_darwin_amd64.tar.gz"
+      sha256 "1a4274cfd49820c33c8bf58d972f2f00e8c012c7c64faf6fe6e5b43bb9537738"
 
       define_method(:install) do
         bin.install "pwf"
+        output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
+        (zsh_completion/"_pwf").write output
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.1.0/pwf_darwin_arm64.tar.gz"
-      sha256 "846f1812b61eb226b4578bfc0d76fab244571c8a7d6b11a5b1e87f7916eef127"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_darwin_arm64.tar.gz"
+      sha256 "98f877c518ac6c39afb76a9063a796d3da9c20604f919619193d726f5cc60ece"
 
       define_method(:install) do
         bin.install "pwf"
+        output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
+        (zsh_completion/"_pwf").write output
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.1.0/pwf_linux_amd64.tar.gz"
-      sha256 "e784eb36658c20e6bda3d2d5171a38c5d15fc20d752ac3c4addfd7049f0f7bc8"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_linux_amd64.tar.gz"
+      sha256 "73507c087ba11dc0e0669ec9d254954eff34529863b2b01c108ccc25c5059261"
       define_method(:install) do
         bin.install "pwf"
+        output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
+        (zsh_completion/"_pwf").write output
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.1.0/pwf_linux_arm64.tar.gz"
-      sha256 "2d4f9ce3450cb12d7802395b41904a3cbb4eff5f3d2f8bb43c7390faf8e60727"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_linux_arm64.tar.gz"
+      sha256 "2829362af63bd906e333b0f9593a95fa47ea0693bdbec1fe59c47e3cef80fc75"
       define_method(:install) do
         bin.install "pwf"
+        output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
+        (zsh_completion/"_pwf").write output
       end
     end
   end
