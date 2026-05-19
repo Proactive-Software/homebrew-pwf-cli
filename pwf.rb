@@ -5,13 +5,13 @@
 class Pwf < Formula
   desc "Personal ProWorkflow CLI"
   homepage "https://github.com/Proactive-Software/pwf-cli"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_darwin_amd64.tar.gz"
-      sha256 "1a4274cfd49820c33c8bf58d972f2f00e8c012c7c64faf6fe6e5b43bb9537738"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.1/pwf_darwin_amd64.tar.gz"
+      sha256 "831a6c97de9def9daa6a836a26c193b83ec3a9ce7e06856d8e9029ed0f4cf107"
 
       define_method(:install) do
         bin.install "pwf"
@@ -20,8 +20,8 @@ class Pwf < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_darwin_arm64.tar.gz"
-      sha256 "98f877c518ac6c39afb76a9063a796d3da9c20604f919619193d726f5cc60ece"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.1/pwf_darwin_arm64.tar.gz"
+      sha256 "f2a99f1053873299f06322122f98da2233521ba7fdd0b10d5f77c5f7556f7453"
 
       define_method(:install) do
         bin.install "pwf"
@@ -33,8 +33,8 @@ class Pwf < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_linux_amd64.tar.gz"
-      sha256 "73507c087ba11dc0e0669ec9d254954eff34529863b2b01c108ccc25c5059261"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.1/pwf_linux_amd64.tar.gz"
+      sha256 "1f79f8ae06782fa2e51f862998c69a1940a323899f463c5919520eb17355cf04"
       define_method(:install) do
         bin.install "pwf"
         output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
@@ -42,8 +42,8 @@ class Pwf < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.0/pwf_linux_arm64.tar.gz"
-      sha256 "2829362af63bd906e333b0f9593a95fa47ea0693bdbec1fe59c47e3cef80fc75"
+      url "https://github.com/Proactive-Software/pwf-cli/releases/download/v0.2.1/pwf_linux_arm64.tar.gz"
+      sha256 "2aa4fac68657715b12cb98e1c5d9c635b85b2756e77876252db871719a11b3a1"
       define_method(:install) do
         bin.install "pwf"
         output = Utils.safe_popen_read("#{bin}/pwf", "completion", "zsh")
